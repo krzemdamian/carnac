@@ -36,14 +36,14 @@ namespace Carnac.Logic.MouseMonitor
                 this.observer = observer;
                 m_GlobalHook.MouseClick += OnMouseClick;
                 m_GlobalHook.MouseDoubleClick += OnMouseDoubleClick;
-                m_GlobalHook.MouseWheel += HookManager_MouseWheel;
+                //m_GlobalHook.MouseWheel += HookManager_MouseWheel;
                 Debug.Write("Subscribed to mouse");
 
                 return Disposable.Create(() =>
                 {
                     m_GlobalHook.MouseClick -= OnMouseClick;
                     m_GlobalHook.MouseDoubleClick -= OnMouseDoubleClick;
-                    m_GlobalHook.MouseWheel -= HookManager_MouseWheel;
+                    //m_GlobalHook.MouseWheel -= HookManager_MouseWheel;
                     m_GlobalHook.Dispose();
                     Debug.Write("Unsubscribed from mouse");
                 });
